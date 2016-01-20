@@ -9,7 +9,9 @@ namespace LivePerformance2016.CSharp.Data
     public interface IData
     {
         //List<Animal> GetAllAnimals();
-        //void SaveAnimal(Animal animal)
+        //void SaveAllAnimals();
+
+        //void SaveAnimal(Animal animal);
         //void UpdateAnimal(Animal animal);
         //void DeleteAnimal(Animal animal);
     }

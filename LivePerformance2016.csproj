@@ -64,12 +64,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSharp\Administratie.cs" />
+    <Compile Include="CSharp\Bezoek.cs" />
     <Compile Include="CSharp\Data\Database.cs" />
     <Compile Include="CSharp\Data\DatabaseCreateFromReader.cs" />
     <Compile Include="CSharp\Data\DatabaseDelete.cs" />
     <Compile Include="CSharp\Data\DatabaseInsert.cs" />
     <Compile Include="CSharp\Data\DatabaseSelect.cs" />
     <Compile Include="CSharp\Data\IData.cs" />
+    <Compile Include="CSharp\Data\XML.cs" />
+    <Compile Include="CSharp\Diersoort.cs" />
+    <Compile Include="CSharp\Gebied.cs" />
+    <Compile Include="CSharp\Project.cs" />
+    <Compile Include="CSharp\Type.cs" />
+    <Compile Include="CSharp\Waarneming.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
