@@ -9,6 +9,11 @@ namespace LivePerformance2016.CSharp.Data
 {
     public partial class Database
     {
+        public void SaveBezoek(Bezoek bezoek)
+        {
+            throw new NotImplementedException();
+        }
+
         //public void InsertReservering(Reservering reservering)
         //{
         //    using (OracleConnection connection = Connection)

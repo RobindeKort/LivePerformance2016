@@ -9,24 +9,104 @@ namespace LivePerformance2016.CSharp.Data
 {
     public partial class Database
     {
-        //private List<Recht> GetAllRechten()
+        //public List<Diersoort> GetAllDiersoorten()
         //{
-        //    List<Recht> rechtenList = new List<Recht>();
+        //    List<Diersoort> diersoortList = new List<Diersoort>();
         //    using (OracleConnection connection = Connection)
         //    {
-        //        string query = "SELECT * FROM RECHT";
+        //        string query = "SELECT * FROM DIERSOORT";
         //        using (OracleCommand command = new OracleCommand(query, connection))
         //        {
         //            using (OracleDataReader reader = command.ExecuteReader())
         //            {
         //                while (reader.Read())
         //                {
-        //                    rechtenList.Add(CreateRechtFromReader(reader));
+        //                    diersoortList.Add(CreateDiersoortFromReader(reader));
         //                }
         //            }
         //        }
         //    }
-        //    return rechtenList;
+        //    return diersoortList;
         //}
+
+        private List<Gebied> GetAllGebiedenZonderProjecten()
+        {
+            List<Gebied> gebiedList = new List<Gebied>();
+            using (OracleConnection connection = Connection)
+            {
+                string query = "SELECT * FROM GEBIED";
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            gebiedList.Add(CreateGebiedFromReader(reader));
+                        }
+                    }
+                }
+            }
+            return gebiedList;
+        }
+
+        private List<Gebied> GetAllGebiedenZonderBezoeken()
+        {
+            List<Gebied> gebiedList = GetAllGebiedenZonderProjecten();
+            using (OracleConnection connection = Connection)
+            {
+                string query = "SELECT * FROM \"PROJECT\"";
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            gebiedList = CreateProjectFromReader(reader, gebiedList);
+                        }
+                    }
+                }
+            }
+            return gebiedList;
+        }
+
+        private List<Gebied> GetAllGebiedenZonderWaarnemingen()
+        {
+            List<Gebied> gebiedList = GetAllGebiedenZonderBezoeken();
+            using (OracleConnection connection = Connection)
+            {
+                string query = "SELECT * FROM BEZOEK";
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            gebiedList = CreateBezoekFromReader(reader, gebiedList);
+                        }
+                    }
+                }
+            }
+            return gebiedList;
+        }
+
+        public List<Gebied> GetAllGebieden(List<Diersoort> diersoorten)
+        {
+            List<Gebied> gebiedList = GetAllGebiedenZonderWaarnemingen();
+            using (OracleConnection connection = Connection)
+            {
+                string query = "SELECT * FROM WAARNEMING";
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            gebiedList = CreateWaarnemingFromReader(reader, gebiedList, diersoorten);
+                        }
+                    }
+                }
+            }
+            return gebiedList;
+        }
     }
 }
