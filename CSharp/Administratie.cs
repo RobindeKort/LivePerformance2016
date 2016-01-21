@@ -26,6 +26,12 @@ namespace LivePerformance2016.CSharp
             {
                 Database d = (Database)data;
                 Gebieden = d.GetAllGebieden(Diersoorten);
+                new XML().SaveGebieden(Gebieden);
+            }
+            else if (data.GetType() == typeof (XML))
+            {
+                XML x = (XML)data;
+                Gebieden = x.GetGebieden();
             }
         }
 
@@ -63,11 +69,6 @@ namespace LivePerformance2016.CSharp
         public void SaveBezoek(Bezoek bezoek)
         {
             data.SaveBezoek(bezoek);
-        }
-
-        public void SaveWaarneming(Waarneming waarneming)
-        {
-
         }
     }
 }

@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LivePerformance2016.CSharp
 {
+    [DataContract]
     public class Gebied
     {
-        public int ID { get; }
-        public string Naam { get; }
-        public string KaartPath { get; }
-        public List<Project> Projecten { get; }
+        [DataMember]
+        public int ID { get; private set; }
+        [DataMember]
+        public string Naam { get; private set; }
+        [DataMember]
+        public string KaartPath { get; private set; }
+        [DataMember]
+        public List<Project> Projecten { get; private set; }
 
         public Gebied(int id, string naam, string kaartpath)
         {

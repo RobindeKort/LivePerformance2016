@@ -31,6 +31,7 @@ namespace LivePerformance2016
             catch (IOException e)
             {
                 MessageBox.Show(e.Message);
+                Environment.Exit(0);
             }
 
             cbxGebied.DataSource = admin.Gebieden;

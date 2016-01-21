@@ -43,6 +43,7 @@
             this.pnlKaart.Name = "pnlKaart";
             this.pnlKaart.Size = new System.Drawing.Size(980, 628);
             this.pnlKaart.TabIndex = 0;
+            this.pnlKaart.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlKaart_Paint);
             this.pnlKaart.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlKaart_MouseClick);
             this.pnlKaart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlKaart_MouseMove);
             // 
@@ -60,7 +61,7 @@
             // cbxWaarneming
             // 
             this.cbxWaarneming.FormattingEnabled = true;
-            this.cbxWaarneming.Location = new System.Drawing.Point(999, 90);
+            this.cbxWaarneming.Location = new System.Drawing.Point(999, 153);
             this.cbxWaarneming.Name = "cbxWaarneming";
             this.cbxWaarneming.Size = new System.Drawing.Size(271, 24);
             this.cbxWaarneming.TabIndex = 2;
@@ -68,7 +69,7 @@
             // lblWaarneming
             // 
             this.lblWaarneming.AutoSize = true;
-            this.lblWaarneming.Location = new System.Drawing.Point(1000, 70);
+            this.lblWaarneming.Location = new System.Drawing.Point(1000, 133);
             this.lblWaarneming.Name = "lblWaarneming";
             this.lblWaarneming.Size = new System.Drawing.Size(88, 17);
             this.lblWaarneming.TabIndex = 3;
@@ -77,7 +78,7 @@
             // cbxVogelSoort
             // 
             this.cbxVogelSoort.FormattingEnabled = true;
-            this.cbxVogelSoort.Location = new System.Drawing.Point(999, 156);
+            this.cbxVogelSoort.Location = new System.Drawing.Point(999, 94);
             this.cbxVogelSoort.Name = "cbxVogelSoort";
             this.cbxVogelSoort.Size = new System.Drawing.Size(271, 24);
             this.cbxVogelSoort.TabIndex = 4;
@@ -85,7 +86,7 @@
             // lblVogelsoort
             // 
             this.lblVogelsoort.AutoSize = true;
-            this.lblVogelsoort.Location = new System.Drawing.Point(1000, 136);
+            this.lblVogelsoort.Location = new System.Drawing.Point(1000, 74);
             this.lblVogelsoort.Name = "lblVogelsoort";
             this.lblVogelsoort.Size = new System.Drawing.Size(76, 17);
             this.lblVogelsoort.TabIndex = 5;
