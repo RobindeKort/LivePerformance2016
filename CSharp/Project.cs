@@ -9,6 +9,7 @@ namespace LivePerformance2016.CSharp
     public class Project
     {
         public int ID { get; }
+        public int GebiedID { get; }
         public DateTime DatumStart { get; }
         public DateTime DatumEind { get; set; }
         public string Beschrijving { get; }
@@ -19,14 +20,17 @@ namespace LivePerformance2016.CSharp
             ID = id;
             DatumStart = datumstart;
             Beschrijving = beschrijving;
+            Bezoeken = new List<Bezoek>();
         }
 
-        public Project(int id, DateTime datumstart, DateTime datumeind, string beschrijving)
+        public Project(int id, int gebiedid, DateTime datumstart, DateTime datumeind, string beschrijving)
         {
             ID = id;
+            GebiedID = gebiedid;
             DatumStart = datumstart;
             DatumEind = datumeind;
             Beschrijving = beschrijving;
+            Bezoeken = new List<Bezoek>();
         }
 
         public void AddBezoek(Bezoek bezoek)

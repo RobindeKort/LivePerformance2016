@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace LivePerformance2016.CSharp
 {
-    [DataContract(Name = "Type")]
+    [DataContract]
     public enum Type
     {
+        [EnumMember]
         VA,
+        [EnumMember]
         TI,
+        [EnumMember]
         NI
     }
 }

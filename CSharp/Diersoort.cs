@@ -11,21 +11,18 @@ namespace LivePerformance2016.CSharp
     public class Diersoort
     {
         [DataMember]
-        public int ID { get; }
+        public string Naam { get; private set; }
         [DataMember]
-        public string Naam { get; }
+        public string Afkorting { get; private set; }
         [DataMember]
-        public string Afkorting { get; }
-        [DataMember]
-        public DateTime BroedStart { get; }
+        public DateTime BroedStart { get; private set; }
         [DataMember]
         public DateTime BroedEind { get; set; }
         [DataMember]
-        public int BroedReq { get; }
+        public int BroedReq { get; private set; }
 
-        public Diersoort(int id, string naam, string afkorting, DateTime broedstart, DateTime broedeind, int broedreq)
+        public Diersoort(string naam, string afkorting, DateTime broedstart, DateTime broedeind, int broedreq)
         {
-            ID = id;
             Naam = naam;
             Afkorting = afkorting;
             BroedStart = broedstart;

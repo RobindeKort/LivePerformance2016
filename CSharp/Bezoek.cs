@@ -11,25 +11,31 @@ namespace LivePerformance2016.CSharp
     public class Bezoek
     {
         [DataMember]
-        public int ID { get; }
+        public int ID { get; private set; }
         [DataMember]
-        public DateTime DatumStart { get; }
+        public int ProjectID { get; private set; }
+        [DataMember]
+        public DateTime DatumStart { get; private set; }
         [DataMember]
         public DateTime DatumEind { get; set; }
         [DataMember]
-        public List<Waarneming> Waarnemingen  { get; }
+        public List<Waarneming> Waarnemingen  { get; private set; }
 
-        public Bezoek(int id, DateTime datumstart)
+        public Bezoek(int id, int projectid, DateTime datumstart)
         {
             ID = id;
+            ProjectID = projectid;
             DatumStart = datumstart;
+            Waarnemingen = new List<Waarneming>();
         }
 
-        public Bezoek(int id, DateTime datumstart, DateTime datumeind)
+        public Bezoek(int id, int projectid, DateTime datumstart, DateTime datumeind)
         {
             ID = id;
+            ProjectID = projectid;
             DatumStart = datumstart;
             DatumEind = datumeind;
+            Waarnemingen = new List<Waarneming>();
         }
 
         public void AddWaarneming(Waarneming waarneming)

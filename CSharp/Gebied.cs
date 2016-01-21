@@ -18,6 +18,7 @@ namespace LivePerformance2016.CSharp
             ID = id;
             Naam = naam;
             KaartPath = kaartpath;
+            Projecten = new List<Project>();
         }
 
         public void AddProject(Project project)

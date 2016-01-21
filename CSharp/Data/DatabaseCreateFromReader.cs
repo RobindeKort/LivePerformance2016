@@ -53,7 +53,7 @@ namespace LivePerformance2016.CSharp.Data
             {
                 if (g.ID == gebiedid)
                 {
-                    g.AddProject(new Project(id, start, eind, beschrijving));
+                    g.AddProject(new Project(id, gebiedid, start, eind, beschrijving));
                 }
             }
 
@@ -73,7 +73,7 @@ namespace LivePerformance2016.CSharp.Data
                 {
                     if (p.ID == projectid)
                     {
-                        p.AddBezoek(new Bezoek(id, start, eind));
+                        p.AddBezoek(new Bezoek(id, projectid, start, eind));
                         return gebieden;
                     }
                 }
@@ -86,7 +86,7 @@ namespace LivePerformance2016.CSharp.Data
         {
             int id = Convert.ToInt32(reader["ID"]);
             int bezoekid = Convert.ToInt32(reader["BezoekID"]);
-            int diersoortid = Convert.ToInt32(reader["DiersoortID"]);
+            string diersoort = Convert.ToString(reader["Diersoort"]);
             string typestring = Convert.ToString(reader["Type"]);
             int locx = Convert.ToInt32(reader["LocX"]);
             int locy = Convert.ToInt32(reader["LocY"]);
@@ -96,12 +96,12 @@ namespace LivePerformance2016.CSharp.Data
             else if (typestring == "TI") { type = Type.TI; }
             else if (typestring == "NI") { type = Type.NI; }
 
-            Diersoort diersoort = null;
+            Diersoort soort = null;
             foreach (Diersoort d in diersoorten)
             {
-                if (d.ID == diersoortid)
+                if (d.Naam == diersoort)
                 {
-                    diersoort = d;
+                    soort = d;
                     break;
                 }
             }
@@ -114,7 +114,7 @@ namespace LivePerformance2016.CSharp.Data
                     {
                         if (b.ID == bezoekid)
                         {
-                            b.AddWaarneming(new Waarneming(id, type, locx, locy, diersoort));
+                            b.AddWaarneming(new Waarneming(id, bezoekid, type, locx, locy, soort));
                             return gebieden;
                         }
                     }

@@ -25,6 +25,14 @@ namespace LivePerformance2016.CSharp.Data
             }
         }
 
+        public Bezoek GetBezoek()
+        {
+            using (FileStream f = new FileStream("Bezoek.xml", FileMode.Open, FileAccess.Read))
+            {
+                return dcs.ReadObject(f) as Bezoek;
+            }
+        }
+
         //public List<Diersoort> GetAllDiersoorten()
         //{
         //    throw new NotImplementedException();
