@@ -35,6 +35,7 @@
             this.cbxVogelSoort = new System.Windows.Forms.ComboBox();
             this.lblVogelsoort = new System.Windows.Forms.Label();
             this.lblXY = new System.Windows.Forms.Label();
+            this.btnExporteer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pnlKaart
@@ -53,7 +54,7 @@
             this.btnStoppen.Location = new System.Drawing.Point(1050, 596);
             this.btnStoppen.Name = "btnStoppen";
             this.btnStoppen.Size = new System.Drawing.Size(178, 45);
-            this.btnStoppen.TabIndex = 1;
+            this.btnStoppen.TabIndex = 4;
             this.btnStoppen.Text = "Stoppen";
             this.btnStoppen.UseVisualStyleBackColor = true;
             this.btnStoppen.Click += new System.EventHandler(this.btnStoppen_Click);
@@ -81,7 +82,7 @@
             this.cbxVogelSoort.Location = new System.Drawing.Point(999, 94);
             this.cbxVogelSoort.Name = "cbxVogelSoort";
             this.cbxVogelSoort.Size = new System.Drawing.Size(271, 24);
-            this.cbxVogelSoort.TabIndex = 4;
+            this.cbxVogelSoort.TabIndex = 1;
             // 
             // lblVogelsoort
             // 
@@ -101,11 +102,23 @@
             this.lblXY.TabIndex = 6;
             this.lblXY.Text = "X:? Y:?";
             // 
+            // btnExporteer
+            // 
+            this.btnExporteer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExporteer.Location = new System.Drawing.Point(1050, 531);
+            this.btnExporteer.Name = "btnExporteer";
+            this.btnExporteer.Size = new System.Drawing.Size(178, 45);
+            this.btnExporteer.TabIndex = 3;
+            this.btnExporteer.Text = "Exporteer";
+            this.btnExporteer.UseVisualStyleBackColor = true;
+            this.btnExporteer.Click += new System.EventHandler(this.btnExporteer_Click);
+            // 
             // BezoekForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 653);
+            this.Controls.Add(this.btnExporteer);
             this.Controls.Add(this.lblXY);
             this.Controls.Add(this.lblVogelsoort);
             this.Controls.Add(this.cbxVogelSoort);
@@ -130,5 +143,6 @@
         private System.Windows.Forms.ComboBox cbxVogelSoort;
         private System.Windows.Forms.Label lblVogelsoort;
         private System.Windows.Forms.Label lblXY;
+        private System.Windows.Forms.Button btnExporteer;
     }
 }

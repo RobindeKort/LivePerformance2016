@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LivePerformance2016.CSharp;
 using LivePerformance2016.CSharp.Data;
+using Oracle.ManagedDataAccess.Client;
 
 namespace LivePerformance2016
 {
@@ -33,10 +34,16 @@ namespace LivePerformance2016
                 MessageBox.Show(e.Message);
                 Environment.Exit(0);
             }
+            catch (OracleException e)
+            {
+                MessageBox.Show(e.Message);
+                Environment.Exit(0);
+            }
 
             cbxGebied.DataSource = admin.Gebieden;
         }
 
+        // Vraagt aan de gebruiker of hij on-/offline is
         private IData SetDataSource()
         {
             DialogResult dialogResult = MessageBox.Show("Heeft u verbinding met het internet?", "VerbindingsTest", MessageBoxButtons.YesNo);
@@ -50,9 +57,11 @@ namespace LivePerformance2016
             }
             return null;
         }
-
+        
         private void cbxGebied_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnStart.Enabled = false;
+            btnKaart.Enabled = false;
             cbxProject.Enabled = false;
             if (cbxGebied.SelectedIndex >= 0)
             {
@@ -65,16 +74,26 @@ namespace LivePerformance2016
         private void cbxProject_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnStart.Enabled = false;
+            btnKaart.Enabled = false;
             if (cbxProject.SelectedIndex >= 0)
             {
                 btnStart.Enabled = true;
+                btnKaart.Enabled = true;
             }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             Project p = (Project)cbxProject.SelectedItem;
-            BezoekForm bf = new BezoekForm(this, admin, p);
+            BezoekForm bf = new BezoekForm(this, admin, p, false);
+            this.Hide();
+            bf.Show();
+        }
+
+        private void btnKaart_Click(object sender, EventArgs e)
+        {
+            Project p = (Project)cbxProject.SelectedItem;
+            BezoekForm bf = new BezoekForm(this, admin, p, true);
             this.Hide();
             bf.Show();
         }

@@ -9,6 +9,7 @@ namespace LivePerformance2016.CSharp.Data
 {
     public interface IData
     {
+        // Interface om altijd een Bezoek op te kunnen slaan (online/offline)
         void SaveBezoek(Bezoek bezoek);
         //List<Diersoort> GetAllDiersoorten();
 

@@ -19,6 +19,7 @@ namespace LivePerformance2016.CSharp.Data
             dcsg = new DataContractSerializer(typeof (List<Gebied>), new System.Type[] { typeof(List<Project>), typeof(List<Bezoek>) });
         }
 
+        // Slaat een bezoek op als een XML bestand
         public void SaveBezoek(Bezoek bezoek)
         {
             using (FileStream f = new FileStream(@"Bestanden\Bezoek.xml", FileMode.Create, FileAccess.Write))
@@ -27,6 +28,7 @@ namespace LivePerformance2016.CSharp.Data
             }
         }
 
+        // Importeert een bezoek vanuit het eerder opgeslagen XML bestand
         public Bezoek GetBezoek()
         {
             using (FileStream f = new FileStream(@"Bestanden\Bezoek.xml", FileMode.Open, FileAccess.Read))
@@ -35,6 +37,7 @@ namespace LivePerformance2016.CSharp.Data
             }
         }
 
+        // Slaat Gebieden en Projecten op voor gebruik wanneer de applicatie geen verbinding heeft met de Database
         public void SaveGebieden(List<Gebied> gebieden)
         {
             using (FileStream f = new FileStream(@"Bestanden\Gebieden.xml", FileMode.Create, FileAccess.Write))
@@ -43,6 +46,7 @@ namespace LivePerformance2016.CSharp.Data
             }
         }
 
+        // Haalt Gebieden en Projecten op voor gebruik wanneer de applicatie geen verbinding heeft met de Database
         public List<Gebied> GetGebieden()
         {
             using (FileStream f = new FileStream(@"Bestanden\Gebieden.xml", FileMode.Open, FileAccess.Read))

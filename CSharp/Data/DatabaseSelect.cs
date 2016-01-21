@@ -9,6 +9,7 @@ namespace LivePerformance2016.CSharp.Data
 {
     public partial class Database
     {
+        // Diersoorten worden niet meer in de Database opgeslagen
         //public List<Diersoort> GetAllDiersoorten()
         //{
         //    List<Diersoort> diersoortList = new List<Diersoort>();
@@ -29,6 +30,7 @@ namespace LivePerformance2016.CSharp.Data
         //    return diersoortList;
         //}
 
+        // Haalt alleen de Gebieden uit de Database
         private List<Gebied> GetAllGebiedenZonderProjecten()
         {
             List<Gebied> gebiedList = new List<Gebied>();
@@ -49,6 +51,7 @@ namespace LivePerformance2016.CSharp.Data
             return gebiedList;
         }
 
+        // Haalt alleen de Projecten uit de Database en koppelt ze aan de Gebieden
         private List<Gebied> GetAllGebiedenZonderBezoeken()
         {
             List<Gebied> gebiedList = GetAllGebiedenZonderProjecten();
@@ -69,6 +72,7 @@ namespace LivePerformance2016.CSharp.Data
             return gebiedList;
         }
 
+        // Haalt alleen de Bezoeken uit de Database en koppelt ze aan de Projecten
         private List<Gebied> GetAllGebiedenZonderWaarnemingen()
         {
             List<Gebied> gebiedList = GetAllGebiedenZonderBezoeken();
@@ -89,6 +93,7 @@ namespace LivePerformance2016.CSharp.Data
             return gebiedList;
         }
 
+        // Haalt alleen de Waarnemingen uit de Database en koppelt ze aan de Bezoeken
         public List<Gebied> GetAllGebieden(List<Diersoort> diersoorten)
         {
             List<Gebied> gebiedList = GetAllGebiedenZonderWaarnemingen();

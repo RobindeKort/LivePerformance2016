@@ -11,7 +11,7 @@ namespace LivePerformance2016.CSharp
 {
     public partial class Administratie
     {
-        private IData data;
+        public IData data { get; }
         public List<Diersoort> Diersoorten { get; private set; }
         public List<Gebied> Gebieden { get; private set; }
 
@@ -22,17 +22,7 @@ namespace LivePerformance2016.CSharp
             data = idata;
 
             GetAllDiersoorten();
-            if (data.GetType() == typeof(Database))
-            {
-                Database d = (Database)data;
-                Gebieden = d.GetAllGebieden(Diersoorten);
-                new XML().SaveGebieden(Gebieden);
-            }
-            else if (data.GetType() == typeof (XML))
-            {
-                XML x = (XML)data;
-                Gebieden = x.GetGebieden();
-            }
+            RefreshGebieden();
         }
 
         // Importeert alle vogelsoorten uit een tekstbestand (broedvogels.csv)
@@ -66,6 +56,23 @@ namespace LivePerformance2016.CSharp
             return;
         }
 
+        // Vult de List<Gebied> Gebieden met alle Gebieden uit de Database
+        public void RefreshGebieden()
+        {
+            if (data.GetType() == typeof(Database))
+            {
+                Database d = (Database)data;
+                Gebieden = d.GetAllGebieden(Diersoorten);
+                new XML().SaveGebieden(Gebieden);
+            }
+            else if (data.GetType() == typeof (XML))
+            {
+                XML x = (XML)data;
+                Gebieden = x.GetGebieden();
+            }
+        }
+
+        // Slaat een Bezoek op in de Database
         public void SaveBezoek(Bezoek bezoek)
         {
             data.SaveBezoek(bezoek);

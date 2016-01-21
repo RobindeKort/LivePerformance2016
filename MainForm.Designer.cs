@@ -35,6 +35,7 @@
             this.lblGebied = new System.Windows.Forms.Label();
             this.lblProject = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
+            this.btnKaart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,7 +99,7 @@
             // 
             this.btnStart.Enabled = false;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(210, 443);
+            this.btnStart.Location = new System.Drawing.Point(143, 449);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(118, 48);
             this.btnStart.TabIndex = 6;
@@ -106,11 +107,24 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // btnKaart
+            // 
+            this.btnKaart.Enabled = false;
+            this.btnKaart.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKaart.Location = new System.Drawing.Point(292, 449);
+            this.btnKaart.Name = "btnKaart";
+            this.btnKaart.Size = new System.Drawing.Size(118, 48);
+            this.btnKaart.TabIndex = 7;
+            this.btnKaart.Text = "Kaart";
+            this.btnKaart.UseVisualStyleBackColor = true;
+            this.btnKaart.Click += new System.EventHandler(this.btnKaart_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 653);
+            this.Controls.Add(this.btnKaart);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblProject);
             this.Controls.Add(this.lblGebied);
@@ -134,6 +148,7 @@
         private System.Windows.Forms.Label lblGebied;
         private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnKaart;
     }
 }
 

@@ -9,6 +9,7 @@ namespace LivePerformance2016.CSharp.Data
 {
     public partial class Database
     {
+        // VOORBEELD
         //public void RemoveReservering(Reservering reservering)
         //{
         //    using (OracleConnection connection = Connection)
